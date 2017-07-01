@@ -34,6 +34,12 @@ namespace GOOS_Sample.Controllers
 
     public class BudgetService : IBudgetService
     { 
+        private IRepository<Budget> _budgetRepository;
+        public BudgetService(IRepository<Budget> budgetRepository)
+        {
+            this._budgetRepository = budgetRepository;
+        }
+
         public void Create(BudgetAddViewModel model)
         {
             using (var dbcontext = new NORTHWNDEntities())

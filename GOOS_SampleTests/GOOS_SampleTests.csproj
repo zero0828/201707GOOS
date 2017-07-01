@@ -173,6 +173,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetCreate.feature</DependentUpon>
     </Compile>
+    <Compile Include="Models\BudgetServiceTests.cs" />
     <Compile Include="steps\BudgetControllerSteps.cs" />
     <Compile Include="steps\Common\Hooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
