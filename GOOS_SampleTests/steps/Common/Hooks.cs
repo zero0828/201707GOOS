@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentAutomation;
+using GOOS_Sample.Controllers;
 using GOOS_Sample.DataModels;
+using GOOS_Sample.Models;
+using Microsoft.Practices.Unity;
 using TechTalk.SpecFlow;
 
 namespace GOOS_SampleTests
@@ -50,10 +53,17 @@ namespace GOOS_SampleTests
                 dbcontext.SaveChangesAsync();
             }
         }
-        [AfterScenario]
-        public void AfterScenario()
+
+        [BeforeTestRun()]
+        public static void RegisterDIContainer()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            UnityContainer = new UnityContainer();
+            UnityContainer.RegisterType<IBudgetService, BudgetService>();
+        }
+        public static IUnityContainer UnityContainer
+        {
+            get;
+            set;
         }
     }
 }
