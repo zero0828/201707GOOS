@@ -9,7 +9,6 @@ namespace GOOS_Sample.Controllers
 {
     public class BudgetController : Controller
     {
-
         // GET: Budget
         public ActionResult Add()
         {
