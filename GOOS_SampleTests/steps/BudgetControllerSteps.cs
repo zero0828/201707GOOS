@@ -19,13 +19,12 @@ namespace GOOS_SampleTests.steps
         [BeforeScenario()]
         public void BeforeScenario()
         {
-
             this._budgetController = new BudgetController();
 
-            using (var dbcontext = new NORTHWNDEntitiesforTest())
-            {
-                dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Budgets]");
-            }
+            //using (var dbcontext = new NORTHWNDEntitiesforTest())
+            //{
+            //    dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Budgets]");
+            //}
         }
 
         [When(@"add a budget")]
