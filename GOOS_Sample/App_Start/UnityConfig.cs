@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc5;
 using GOOS_Sample.Models;
 using GOOS_Sample.Controllers;
+using GOOS_Sample.DataModels;
 
 namespace GOOS_Sample
 {
@@ -12,11 +13,9 @@ namespace GOOS_Sample
         {
             var container = new UnityContainer();
 
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-
-            // e.g. container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IRepository<Budget>, BudgetRepository>();
             container.RegisterType<IBudgetService, BudgetService>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
