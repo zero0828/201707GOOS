@@ -11,10 +11,10 @@ namespace GOOS_Sample.Controllers
 {
     public class BudgetController : Controller
     {
-        private IBudgetService _budgetServiceStub;
-        public BudgetController(IBudgetService budgetServiceStubStub)
+        private IBudgetService _budgetService;
+        public BudgetController(IBudgetService budgetService)
         {
-            this._budgetServiceStub = budgetServiceStubStub;
+            this._budgetService = budgetService;
         }
         public BudgetController()
         {
@@ -34,7 +34,7 @@ namespace GOOS_Sample.Controllers
             //    dbcontext.Budgets.Add(budget);
             //    dbcontext.SaveChanges();
             //}
-            this._budgetServiceStub.Create(model);
+            this._budgetService.Create(model);
             ViewBag.Message = "added successfully";
             return View(model);
         }
